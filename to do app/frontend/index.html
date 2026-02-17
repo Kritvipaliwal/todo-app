@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="app-wrapper">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1 class="app-title">✓ TaskFlow</h1>
+          <p class="app-subtitle">Stay organized, stay productive</p>
+        </div>
+      </header>
+
+      <!-- Main App -->
+      <main class="main-content">
+        <!-- Stats Section -->
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span class="stat-label">Total Tasks</span>
+            <span class="stat-value" id="totalTasks">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Remaining</span>
+            <span class="stat-value remaining" id="remainingTasks">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Completed</span>
+            <span class="stat-value completed" id="completedTasks">0</span>
+          </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+          <form id="taskForm" class="task-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="taskTitle"
+                class="task-input"
+                placeholder="Add a new task..."
+                maxlength="100"
+                required
+              >
+              <button type="submit" class="btn-add">
+                <span class="btn-icon">+</span>
+                <span class="btn-text">Add</span>
+              </button>
+            </div>
+            <textarea
+              id="taskDescription"
+              class="task-description"
+              placeholder="Add optional description..."
+              maxlength="500"
+            ></textarea>
+          </form>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+          <button class="filter-btn active" data-filter="all">
+            <span class="filter-icon">◎</span> All
+          </button>
+          <button class="filter-btn" data-filter="pending">
+            <span class="filter-icon">◯</span> Pending
+          </button>
+          <button class="filter-btn" data-filter="completed">
+            <span class="filter-icon">✓</span> Completed
+          </button>
+        </div>
+
+        <!-- Tasks List -->
+        <div class="tasks-container">
+          <div id="tasksList" class="tasks-list">
+            <div class="empty-state">
+              <div class="empty-icon">📝</div>
+              <p class="empty-text">No tasks yet. Add one to get started!</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>TaskFlow © 2026 | Organize, Prioritize, Accomplish</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Task</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="editForm" class="modal-form">
+        <input
+          type="text"
+          id="editTitle"
+          class="form-input"
+          placeholder="Task title"
+          maxlength="100"
+          required
+        >
+        <textarea
+          id="editDescription"
+          class="form-input"
+          placeholder="Task description (optional)"
+          maxlength="500"
+        ></textarea>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
