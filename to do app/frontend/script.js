@@ -1,5 +1,5 @@
 // ====== API CONFIGURATION ====== 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://todo-app-9pio.onrender.com/api';
 
 // ====== STATE & ELEMENTS ====== 
 let tasks = [];
